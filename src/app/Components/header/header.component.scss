@@ -1,5 +1,7 @@
 @import '../../../styles.scss';
 
+$primary-background-color: #b2cced;
 div{
-  background-color: $primary;
+  background-color: $primary-background-color;
 }
+
