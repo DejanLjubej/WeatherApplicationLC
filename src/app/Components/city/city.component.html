@@ -1,8 +1,8 @@
 <div class="">
-  {{testString}}
-  {{loading}}
+  {{cityData.name}} <br>
+  {{convertedTimeOfForecast}}
 </div>
 
-<div *ngFor="let item of testString | async">
+<div *ngFor="let item of allData | async">
   {{item|json}}
 </div>
