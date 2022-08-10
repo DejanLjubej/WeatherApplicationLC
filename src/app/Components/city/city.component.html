@@ -6,3 +6,7 @@
 <div *ngFor="let item of allData | async">
   {{item|json}}
 </div>
+
+<div [ngStyle]="{'visibility':loading ? '':'hidden'}" class="spinner-border position-absolute top-50 start-50" role="status">
+  <span class="sr-only"></span>
+</div>

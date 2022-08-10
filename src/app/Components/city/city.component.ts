@@ -18,24 +18,30 @@ export class CityComponent implements OnInit {
     localTime: "",
     localTimeEpoch: 0
   }
-
   convertedTimeOfForecast:string = "Čas";
 
   loading:boolean = true;
-  constructor(private test:WeatherAPIService, private http:HttpClient) { }
+
+  constructor(private test:WeatherAPIService) { }
 
   ngOnInit(): void {
+    this.getAllData();
+  }
+
+  getAllData(){
+    this.loading = true;
+
     this.test.getApiData().subscribe(res => {this.allData = res;
 
       Object.keys(this.allData).forEach(key =>{
-
         switch(key){
           case "location":
             this.getLocationDetails(this.allData[key]);
             break;
-          default: break;
-        }
+            default: break;
+          }
       });
+      this.loading = false;
     });
   }
 
@@ -53,8 +59,8 @@ export class CityComponent implements OnInit {
           break;
       }
     });
+
     console.log(this.cityData);
     this.convertedTimeOfForecast = new Date(this.cityData.localTimeEpoch*1000).toLocaleString();
   }
-
 }

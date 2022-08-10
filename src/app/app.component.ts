@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CityComponent } from './Components/city/city.component';
 
 @Component({
   selector: 'app-root',
