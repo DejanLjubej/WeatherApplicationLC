@@ -1,1 +1,8 @@
-<p>{{testString}}</p>
+<div class="">
+  {{testString}}
+  {{loading}}
+</div>
+
+<div *ngFor="let item of testString | async">
+  {{item|json}}
+</div>

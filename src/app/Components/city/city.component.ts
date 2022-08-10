@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherAPIService } from 'src/app/Services/weather-api.service';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { IcityData } from 'src/app/Interfaces/icity-data';
 
 @Component({
   selector: 'app-city',
@@ -9,17 +11,22 @@ import { WeatherAPIService } from 'src/app/Services/weather-api.service';
 
 export class CityComponent implements OnInit {
 
-  testString:object=[];
+  testString:any;
 
-  loading:boolean = false;
-  constructor(private test:WeatherAPIService) { }
+  loading:boolean = true;
+  constructor(private test:WeatherAPIService, private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.testString = this.test.getTest();
-    console.log(this.testString);
+    this.test.getApiData().subscribe(res => {this.testString = res;
+
+      Object.keys(this.testString).forEach(key =>{
+       });
+
+    });
   }
 
-  Test(){
-    console.log("Test executed");
+  getLocationDetails(){
+
   }
+
 }
