@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherAPIService } from 'src/app/Services/weather-api.service';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { IcityData } from 'src/app/Interfaces/icity-data';
-import { Obj, right } from '@popperjs/core';
 
 @Component({
   selector: 'app-city',
@@ -13,11 +11,13 @@ import { Obj, right } from '@popperjs/core';
 export class CityComponent implements OnInit {
 
   allData:any;
+
   cityData:IcityData = {
     name:"",
     localTime: "",
     localTimeEpoch: 0
   }
+
   convertedTimeOfForecast:string = "Čas";
 
   loading:boolean = true;
